@@ -78,6 +78,16 @@ GROUP BY customer_id
 ORDER BY total_spent DESC
 LIMIT 10;
 
+-- 6.) Duplicate customers
+SELECT
+    order_id,
+    product_id,
+    COUNT(*) AS duplicate_count
+FROM superstore_raw
+GROUP BY order_id, product_id
+HAVING COUNT(*) > 1
+ORDER BY duplicate_count DESC;
+
 -- 7.) FINAL VALIDATION SUMMARY
 
 SELECT 
