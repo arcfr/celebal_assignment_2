@@ -8,7 +8,7 @@ load_dotenv()
 # Load CSV
 df = pd.read_csv(os.getenv("CSV_PATH"), encoding="latin1")
 
-# Convert dates (THIS IS THE FIX)
+# Convert dates 
 df["Order Date"] = pd.to_datetime(df["Order Date"], format="%m/%d/%Y").dt.date
 df["Ship Date"] = pd.to_datetime(df["Ship Date"], format="%m/%d/%Y").dt.date
 
